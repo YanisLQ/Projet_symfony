@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+<div>
+        <div class="my-custom-class-for-errors">
+            {{ form_errors(form) }}
+        </div>
+        <div class="mb-3 w-80">
+            <label for="exampleInputEmail1" class="form-label">{{ form_label(form.email) }}</label>
+                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3 w-80">
+            <label for="exampleInputPassword1" class="form-label">{{ form_label(form.password)}}</label>
+                {{ form_widget(form.password.first, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirmez votre {{ form_label(form.password)}}</label>
+                {{ form_widget(form.password.second, {'attr': {'class': 'form-control'}}) }}
+            <div id="emailHelp" class="form-text">Ne jamais partager votre mot de passe.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">{{ form_label(form.firstname)}}</label>
+                {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">{{ form_label(form.lastname)}}</label>
+                {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3 form-check">
+            {{ form_widget(form.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+            <label class="form-check-label" for="exampleCheck1">Accepter les termes d'utilisation</label>
+        </div>
+</div>
+    {{ form_end(form) }}
+{% endblock %}
